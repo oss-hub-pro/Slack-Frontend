@@ -32,7 +32,7 @@ const MsgInput = (props) => {
             content: msgText,
             receivers: receivers,
             isDirect: current.isDM,
-            channel: current.isDM ? null : current.channel._id,
+            channel: current.isDM ? '' : current.channel._id,
         }
         if (props.isThread) {
             data.isDraft = true;
@@ -42,10 +42,9 @@ const MsgInput = (props) => {
             if (!files.length) return;
             let fileData = {
                 sender: auth._id, receivers, files: files,
-                channel: current.isDM ? null : current.channel._id,
+                channel: current.isDM ? '' : current.channel._id,
             }
             uploadFile(fileData);
-            toast.success('success')
         }
         else createMessage(data);
         setFiles([]);

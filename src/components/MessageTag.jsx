@@ -68,7 +68,6 @@ export default (props) => {
     }
     const updateMsg = (e) => {
         if(e.key == 'Enter') {
-            toast.success(e.target.value);
             updateMessage({_id:msg._id, pins:'', content:editMsg})
             setEdit(false)
             return;
