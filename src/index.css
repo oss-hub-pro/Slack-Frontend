@@ -1,0 +1,39 @@
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1d19317e;
+}
+
+::-webkit-slider-thumb:hover {
+    background: #1d1931;
+}
+
+::-webkit-input-placeholder {
+    color: white !important;
+}
+
+* {
+    margin: 0 !important;
+    box-sizing: border-box;
+    scrollbar-width: none;
+}
+
+textarea {
+    resize: none !important;
+}
+
+input{
+    border-color: #fff7 !important;
+}
+
+#nv:hover #ico{
+    background-color: #824583ff;
+}
+
+#msgTag:hover #msgTools{
+    display: flex;
+    cursor: pointer;
+}
