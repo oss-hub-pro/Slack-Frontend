@@ -32,7 +32,7 @@ const MsgInput = (props) => {
             content: msgText,
             receivers: receivers,
             isDirect: current.isDM,
-            channel: current.isDM ? '' : current.channel._id,
+            channel: current.isDM ? null : current.channel._id,
         }
         if (props.isThread) {
             data.isDraft = true;

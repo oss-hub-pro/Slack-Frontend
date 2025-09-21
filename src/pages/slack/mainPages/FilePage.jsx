@@ -11,7 +11,7 @@ export default (props) => {
 
     const isDM = (file) => {
         let str = JSON.stringify(file.receivers);
-        if (file.channel) return false;
+        if (file.channel.length) return false;
         if (str.includes(auth._id) && file.sender == current.receiver._id) return true;
         return false;
     }
