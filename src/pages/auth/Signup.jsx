@@ -47,6 +47,7 @@ const Signup = () => {
     return (
         <Flex w="100vw" h="100vh" justify={"space-around"} align={"center"} bg={color.primary} color={"white"}>
             <VStack w={'330px'} bg={color.secondary} rounded={'10px'} gap={6} px={10} py={8}>
+
                 <Img w={'100px'} h={'100px'} cursor={'poinger'} rounded={10} onClick={() => imgRef.current.click()} src={info.path ? info.path : `${process.env.REACT_APP_BASE_URL}/avatar/default.jpg`} />
                 <Input type="file" hidden onChange={handleFileChange} ref={imgRef} />
                 <Input type={"text"} name={"username"} value={info.username} placeholder={"Alex"} onChange={changeInfo} />
@@ -54,6 +55,7 @@ const Signup = () => {
                 <PasswordInput w="full" placeholder={"Password"} value={info.password} onChange={changeInfo} name="password" />
                 <PasswordInput w="full" placeholder={"Confirm"} value={info.confirm} onChange={changeInfo} name="confirm" />
                 <Button color={'#000'} w={"full"} onClick={SignUp}>Sign Up</Button>
+                
                 <Link to={'/'}>Don't you have an account?</Link>
             </VStack>
         </Flex>
