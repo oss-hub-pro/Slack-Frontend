@@ -38,7 +38,7 @@ const MsgInput = (props) => {
         }
         let C_receivers;
         if (!current.isDM && current.channel) C_receivers = current.channel.members.map((info) => { return info._id })
-        let receivers = current.isDM ? [current.receiver._id] : C_receivers
+        let receivers = current.isDM ? [auth._id, current.receiver._id] : C_receivers
         let data = {
             sender: auth._id,
             content: msgText,
