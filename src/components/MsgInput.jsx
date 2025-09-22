@@ -5,6 +5,7 @@ import FileList from "./FileList";
 import { slackContext } from "../context/SlackProvider";
 import { authContext } from "../context/AuthProvider";
 import { toast } from "react-toastify";
+import UserList from "./UserList";
 
 const MsgInput = (props) => {
     const { auth } = useContext(authContext)
@@ -12,13 +13,17 @@ const MsgInput = (props) => {
     const [files, setFiles] = useState([]);
     const [msgText, setMsgText] = useState('');
     const fileRef = useRef();
-
+    const [modalUser, setModalUsers] = useState(false)
     const chooseFile = (e) => {
         setFiles([...files, ...e.target.files])
     }
     const handleMessage = (e) => {
+        let str = e.target.value;
+        if (str[str.length - 1] == '@') setModalUsers(true);
+        else setModalUsers(false)
         setMsgText(e.target.value);
     }
+
     const sendMsg = () => {
         if (!current.receiver && !current.channel || !msgText && !files.length) {
             toast.warn('Info inforrect!');
@@ -50,9 +55,16 @@ const MsgInput = (props) => {
         setFiles([]);
         setMsgText('');
     }
-    return (
-        <VStack pos={props.pos} px={4} left={2} bottom={4} w="96%" p={2} gap={2} bg="#0002" rounded={6}>
+    return (<>
+        <Box px={4} left={2} bottom={4} w="96%" p={2} gap={2} bg="#0002" rounded={6}>
+            <Box pos={'relative'}>
+                {
+                    modalUser && <UserList setMsgText={setMsgText} setModal={setModalUsers} message={msgText} />
+                }
+            </Box>
             <Textarea name="textArea" bg={'#0002'} cursor={'wait'} value={msgText} row={4} placeholder="Message.." onChange={handleMessage}></Textarea>
+
+
             <Box w={'full'} display={'flex'} gap={4} px={2}>
                 <FileList setFiles={setFiles} files={files} />
             </Box>
@@ -65,7 +77,9 @@ const MsgInput = (props) => {
                 </HStack>
                 <Box display={'flex'} rounded={4} px={2} bg={'rgba(82, 181, 65, 1)'} _hover={{ cursor: 'pointer' }} onClick={sendMsg}>Send</Box>
             </HStack>
-        </VStack>
+
+        </Box>
+    </>
     )
 }
 export default MsgInput;
