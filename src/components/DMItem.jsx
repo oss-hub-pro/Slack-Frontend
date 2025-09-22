@@ -1,4 +1,4 @@
-import { HStack, VStack, Box, Text, Flex } from "@chakra-ui/react"
+import { HStack, Text, Flex } from "@chakra-ui/react"
 import color from "../constants/color"
 import AvatarWithStatus from "../components/AvatarWithStatus"
 import { FaRegTrashAlt } from "react-icons/fa"

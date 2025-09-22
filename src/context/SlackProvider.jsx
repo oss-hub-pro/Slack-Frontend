@@ -9,6 +9,7 @@ const SlackProvider = (props) => {
     const { auth, setAuth } = useContext(authContext)
     const [allUsers, setAllUsers] = useState([]);
     const [thread, setThread] = useState(false);
+    const [isTyping, setIsTyping] = useState(false);
     const [threadData, setThreadData] = useState({
         parentId: '',
         user: {},
@@ -81,6 +82,10 @@ const SlackProvider = (props) => {
             socket.on(actions.FILES, (data) => {
                 setFileList(data);
             })
+            
+            socket.on(actions.TYPING, (data) => {
+                setIsTyping(data);
+            })
         }
         return () => {
             socket && socket.removeListener(actions.GET_ALL_USERS);
@@ -96,6 +101,7 @@ const SlackProvider = (props) => {
             socket && socket.removeListener(actions.EMOTICON);
             socket && socket.removeListener(actions.STATUS);
             socket && socket.removeListener(actions.FILES);
+            socket && socket.removeListener(actions.TYPING);
         }
     })
 
@@ -159,6 +165,10 @@ const SlackProvider = (props) => {
     const sendEmoticon = (data) => {
         socket && socket.emit(actions.EMOTICON, data);
     }
+
+    const sendTyping = (data) => {
+        socket && socket.emit(actions.TYPING, data)
+    }
     const value = {
         CM, DM,
         getFiles,
@@ -170,8 +180,8 @@ const SlackProvider = (props) => {
         allUsers, setAllUsers,
         fileList, setFileList,
         socketAuth, updateUser,
-        uploadFile,
-        threadData, setThreadData,
+        uploadFile, sendTyping,
+        threadData, setThreadData,isTyping, setIsTyping,
         getAllUsers, createChannel, updateChannel, deleteChannel,
         getMessages, createMessage, updateMessage, deleteMessage,
 
