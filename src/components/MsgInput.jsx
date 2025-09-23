@@ -24,7 +24,7 @@ const MsgInput = (props) => {
         setMsgText(e.target.value);
         let C_receivers;
         if (!current.isDM && current.channel) C_receivers = current.channel.members.filter((info) => info._id != auth._id).map(info => { return info._id })
-        let receivers = current.isDM ? [current.receiver._id] : C_receivers
+        let receivers = current.isDM ? [auth._id, current.receiver._id] : C_receivers
         if (receivers.length) {
             sendTyping({ status: true, receivers })
             setTimeout(() => { sendTyping({ status: false, receivers }) }, 1000)
