@@ -1,4 +1,4 @@
-import { Textarea, Input, Box, HStack, Text, VStack } from "@chakra-ui/react"
+import { Textarea, Input, Box, HStack, Text } from "@chakra-ui/react"
 import { useContext, useRef, useState } from "react"
 import { FaUpload, FaRegSmile, FaPlus } from "react-icons/fa"
 import FileList from "./FileList";
@@ -24,7 +24,7 @@ const MsgInput = (props) => {
         setMsgText(e.target.value);
         let C_receivers;
         if (!current.isDM && current.channel) C_receivers = current.channel.members.filter((info) => info._id != auth._id).map(info => { return info._id })
-        let receivers = current.isDM ? [auth._id, current.receiver._id] : C_receivers
+        let receivers = current.isDM ? [current.receiver._id] : C_receivers
         if (receivers.length) {
             sendTyping({ status: true, receivers })
             setTimeout(() => { sendTyping({ status: false, receivers }) }, 1000)
@@ -38,7 +38,7 @@ const MsgInput = (props) => {
         }
         let C_receivers;
         if (!current.isDM && current.channel) C_receivers = current.channel.members.map((info) => { return info._id })
-        let receivers = current.isDM ? [current.receiver._id] : C_receivers
+        let receivers = current.isDM ? [auth._id, current.receiver._id] : C_receivers
         let data = {
             sender: auth._id,
             content: msgText,
@@ -66,12 +66,12 @@ const MsgInput = (props) => {
         if (e.key == 'Shift+Enter') toast.success('enter')
     }
     return (<>
-        <VStack px={4} left={2} bottom={4} w="96%" border={'1px #0008 solid'} p={2} gap={1} rounded={6}>
-            <Box pos={'relative'} w={'full'}>
+        <Box px={4} left={2} bottom={4} w="96%" p={2} gap={2} bg="#0002" rounded={6}>
+            <Box pos={'relative'}>
                 {modalUser && <UserList setMsgText={setMsgText} setModal={setModalUsers} message={msgText} />}
-                {isTyping && <Text pos={'absolute'} top={'-40px'} left={'10px'} color={'black'}>...is Typing</Text>}
+                {isTyping && <Text pos={'absolute'} top={'-40px'} left={'10px'} >...is Typing</Text>}
             </Box>
-            <Textarea name="textArea" cursor={'wait'} value={msgText} row={4} placeholder="Message.." onKeyDown={handleKeydown} onChange={handleMessage}></Textarea>
+            <Textarea name="textArea" bg={'#0002'} cursor={'wait'} value={msgText} row={4} placeholder="Message.." onKeyDown={handleKeydown} onChange={handleMessage}></Textarea>
 
             <Box w={'full'} display={'flex'} gap={4} px={2}>
                 <FileList setFiles={setFiles} files={files} />
@@ -86,7 +86,7 @@ const MsgInput = (props) => {
                 <Box display={'flex'} rounded={4} px={2} bg={'rgba(82, 181, 65, 1)'} _hover={{ cursor: 'pointer' }} onClick={sendMsg}>Send</Box>
             </HStack>
 
-        </VStack>
+        </Box>
     </>
     )
 }
