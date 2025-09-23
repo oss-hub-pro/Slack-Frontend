@@ -3,8 +3,8 @@ import { FaMoon } from "react-icons/fa"
 import color from "../constants/color"
 const AvatarWithStatus = (props) => {
     const path = `${process.env.REACT_APP_BASE_URL}/avatar/${props.avatar}`
-    const w = props.w ? props.w : "24px"
-    const h = props.h ? props.h : '24px'
+    const w = props.w ? props.w : "18px"
+    const h = props.h ? props.h : '18px'
     return (
         <Flex maxW={w} h={h} minW={w} minH={h} pos="relative" onClick={props.onClick}>
             <Image src={path} w="full" rounded={"20%"} h="full" />

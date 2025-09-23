@@ -25,21 +25,21 @@ const SideBar = () => {
     return (
         <VStack overflowY={"auto"} color={color.third} bg={color.secondary} fontSize={{ base: "14px", lg: "16px" }} w={{ base: "220px", md: "220px", lg: "300px" }} h="calc(100vh - 44px)" rounded={"12px 0 0 12px"} padding={"18px 12px 12px 12px"} gap={"12px"}>
             <VStack w="full" gap={1} >
-                <HStack w="full" cursor={"pointer"} onClick={() => setOpts({ ...opts, CM: !opts.CM })} gap={"4px"}>
+                <HStack w="full" cursor={"pointer"} onClick={() => setOpts({ ...opts, CM: !opts.CM })} fontSize={'20px'} gap={"6px"} px={1.5}>
                     {opts.CM ? <FaCaretDown /> : <FaCaretRight />}<Text fontSize={24}>Channels</Text>
                 </HStack>
                 {opts.CM && CM.map((v, i) => (<ChannelItem {...v} key={i} />))}
-                <HStack w="full" h={'36px'} gap={2} cursor={"pointer"} fontSize={18} p={2} rounded={8} onClick={addChannel} _hover={{ bg: "white", color: color.primary }}>
+                <HStack w="full" h={'36px'} gap={2} cursor={"pointer"} fontSize={'18px'} p={2} rounded={8} onClick={addChannel} _hover={{ bg: "white", color: color.primary }}>
                     <FaPlusSquare /><Text >Add Channel</Text>
                 </HStack>
             </VStack>
             <VStack w="full" gap={1}>
-                <HStack w="full" cursor={"pointer"} onClick={() => setOpts({ ...opts, DM: !opts.DM })} gap={"4px"}>
+                <HStack w="full" cursor={"pointer"} onClick={() => setOpts({ ...opts, DM: !opts.DM })} fontSize={'20px'} gap={"6px"} px={1.5}>
                     {opts.DM ? <FaCaretDown /> : <FaCaretRight />}<Text fontSize={24}>Direct Peoples</Text>
                 </HStack>
                 {opts.DM && DM.map((v, i) => (<DMItem member={v.member} _id={v._id} key={i} />))}
 
-                <HStack w="full" h={'36px'} gap={2} cursor={"pointer"} fontSize={18} p={2} rounded={8} onClick={invitePeople} _hover={{ bg: "white", color: color.primary }}>
+                <HStack w="full" h={'36px'} gap={2} cursor={"pointer"} fontSize={'18px'} p={2} rounded={8} onClick={invitePeople} _hover={{ bg: "white", color: color.primary }}>
                     <FaPlusSquare /><Text >Invite People</Text>
                 </HStack>
 

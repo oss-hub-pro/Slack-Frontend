@@ -3,6 +3,7 @@ import { authContext } from "./AuthProvider";
 import actions from "../constants/slackSocketActions"
 import io from "socket.io-client"
 import axios from "axios";
+import { toast } from "react-toastify";
 export const slackContext = createContext();
 
 const SlackProvider = (props) => {

@@ -15,12 +15,12 @@ const ChannelItem = (props) => {
         setCurrent({...current, receiver:props.member, isDM:true})
     }
     return (
-        <HStack pos={'relative'} gap={2} onClick={chooseDM} bg={props.selected ? "white" : "inherit"} color={props.selected ? color.primary : "interit"} w="full" cursor={"pointer"} p={2} rounded={"8px"} _hover={{ bg: '#fff9', color: color.primary }}>
+        <HStack pos={'relative'} id="msgTag" gap={2} onClick={chooseDM} bg={props.selected ? "white" : "inherit"} color={props.selected ? color.primary : "interit"} w="full" cursor={"pointer"} px={2} py={1} rounded={"8px"} _hover={{ bg: '#fff9', color: color.primary }}>
             <AvatarWithStatus visibleStatus={true} {...props.member} />
-            <Text>{props.member.username}</Text>
+            <Text fontSize={'18px'}>{props.member.username}</Text>
             {
                 props.member._id != auth._id &&
-            <HStack h="full" pos={"absolute"} right={"4px"} top={0} gap={1}>
+            <HStack h="full" display={'none'} id="msgTools" color={'black'} pos={"absolute"} right={"4px"} top={0} gap={1}>
                 <Flex fontSize={"14px"} w="full" h="full" align={"center"} _hover={{ transform: "scale(1.2)", color: "#000" }} onClick={deleteDMUser}>
                     <FaRegTrashAlt />
                 </Flex>
