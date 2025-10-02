@@ -1,4 +1,4 @@
-import { Button, Flex, HStack, Input, Img, VStack, Box } from "@chakra-ui/react";
+import { Button, Flex, Input, Img, VStack } from "@chakra-ui/react";
 import { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import PasswordInput from "../../components/PasswordInput";

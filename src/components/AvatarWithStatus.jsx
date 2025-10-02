@@ -1,4 +1,4 @@
-import { Flex, Text, Box, Image } from "@chakra-ui/react"
+import { Flex, Box, Image } from "@chakra-ui/react"
 import { FaMoon } from "react-icons/fa"
 import color from "../constants/color"
 const AvatarWithStatus = (props) => {
