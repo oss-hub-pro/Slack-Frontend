@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react"
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import { slackContext } from "../../../context/SlackProvider"
 import { authContext } from "../../../context/AuthProvider"
 import MessageTag from "../../../components/MessageTag"

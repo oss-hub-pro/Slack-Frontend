@@ -1,6 +1,7 @@
 import { Box, Flex, Input, HStack } from "@chakra-ui/react"
 import { FaSearch, FaArrowRight, FaArrowLeft } from "react-icons/fa"
 import color from "../../constants/color";
+
 const Header = () => {
     return (
         <HStack w="full" h="40px" justify={"center"}>

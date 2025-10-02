@@ -6,7 +6,6 @@ import MsgActions from "./MsgActions";
 import Emoticon from "./Emoticon";
 import { authContext } from "../context/AuthProvider";
 import FileList from "./FileList";
-import { toast } from "react-toastify";
 
 export default (props) => {
     let msg = props.msg;

@@ -2,7 +2,6 @@ import { Flex, Box, Text } from "@chakra-ui/react"
 import { useContext, useEffect } from "react"
 import { slackContext } from "../../../context/SlackProvider"
 import { authContext } from "../../../context/AuthProvider"
-import MessageTag from "../../../components/MessageTag"
 import FileList from "../../../components/FileList"
 import AvatarWithStatus from "../../../components/AvatarWithStatus"
 

@@ -1,9 +1,7 @@
 import { Box, Flex, Text } from "@chakra-ui/react"
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { FaDownload } from "react-icons/fa";
 import { slackContext } from "../context/SlackProvider";
-import { Link } from "react-router-dom";
-import AvatarWithStatus from "./AvatarWithStatus";
 
 export default (props) => {
     const { downloadFile } = useContext(slackContext)

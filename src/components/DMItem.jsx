@@ -5,6 +5,7 @@ import { FaRegTrashAlt } from "react-icons/fa"
 import { useContext } from "react"
 import { slackContext } from "../context/SlackProvider"
 import { authContext } from "../context/AuthProvider"
+
 const ChannelItem = (props) => {
     const {auth} = useContext(authContext)
     const { deleteChannel, current, setCurrent} = useContext(slackContext)
