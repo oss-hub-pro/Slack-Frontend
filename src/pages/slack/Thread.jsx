@@ -1,4 +1,4 @@
-import { VStack, HStack, Text, Box, Flex } from "@chakra-ui/react"
+import { VStack, Text, Box } from "@chakra-ui/react"
 import { useContext } from "react"
 import { slackContext } from "../../context/SlackProvider"
 import { useEffect } from "react"
